@@ -1,8 +1,5 @@
 body{
   margin:0px;
-  & *{
-
-  }
 }
 
 .ic-content {
@@ -14,11 +11,6 @@ body{
     width:100%;
   }
 }
-
-
-.undoButton{
-  position:absolute;
-  left:0;
-  top:0;
-  z-index:99999999;
+.mdc-toolbar__row{
+  background-color:#3367D6;
 }

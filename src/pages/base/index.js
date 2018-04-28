@@ -1,90 +1,97 @@
 import React, { Component } from 'react';
 
-import { Provider } from 'react-redux';
-import { store } from '../../internal/redux/index.js';
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+// import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+// import RaisedButton from "material-ui/RaisedButton";
+
+// import TabsExampleSimple from '../../internal/components/tabs';
 // import { PreviewWindow } from '../../internal/components/previewWindow/previewWindow';
 // import PreviewWindow from '../../internal/components/previewWindow/previewWindow';
-import { SideBarRight, SideBarLeft } from '../../internal/components/sideBar/sideBar';
-import TopBar from '../../internal/components/topBar/topBar';
-// import StyleCard from '../../internal/components/styleCard/styleCard';
-import DropzoneContainer from '../../internal/components/dropzone/dropzoneContainer';
-import Viewer from '../../internal/components/viewer/viewer';
-
-import KeyController from '../../internal/components/keyController/keyController';
-
-
-
-
-// Libraries
-// Sketch parser / Virtual DOM Creator
-// Virtual DOM -> HTML
-
-//Keyboard and Mouse Reducers
-
-//State Diagram/components
-//Components
-//  - Sketch Files
-//  - Virtual Component DOMs
-//React components
-//  - Page
-//  - Component related actions
-
+// import { SideBarRight, SideBarLeft } from '../../internal/components/sideBar/sideBar';
+// import TopBar from '../../internal/components/topBar/topBar';
+// // import StyleCard from '../../internal/components/styleCard/styleCard';
+// import DropzoneContainer from '../../internal/components/dropzone/dropzoneContainer';
+// import Viewer from '../../internal/components/viewer/viewer';
 //
+// import KeyController from '../../internal/components/keyController/keyController';
+
+import { TabBar, Tab } from 'rmwc';
+import {
+  Toolbar,
+  ToolbarRow,
+  ToolbarTitle
+} from 'rmwc/Toolbar';
+
+
+import {
+  Drawer,
+  DrawerHeader,
+  DrawerContent
+} from 'rmwc/Drawer';
+
+import {
+  List,
+  ListItem,
+  ListItemText
+} from 'rmwc/List';
+
+import { Chart } from 'react-google-charts';
 
 export default class Base extends Component {
   render() {
     return (
-      <Provider store={store}>
         <Router forceRefresh={true}>
           <div className="ic-root">
             <main className="ic-content">
               <Switch>
                 <Route exact={ true } path="/" render={ () => {
                   return (
-                    <KeyController>
-                      <DropzoneContainer>
-                        <Viewer/>
+                    <div>
+                      <Toolbar>
+                        <ToolbarRow>
+                          <ToolbarTitle>Toolbar</ToolbarTitle>
+                        </ToolbarRow>
+                      </Toolbar>
+                      <TabBar
+                        onChange={evt => this.setState({'activeTabIndex4': evt.target.value})}
+                      >
+                        <Tab>Numbers</Tab>
+                        <Tab>Memories</Tab>
+                      </TabBar>
 
-                      </DropzoneContainer>
-
-                      <TopBar/>
-                      <SideBarLeft/>
-                      <SideBarRight/>
-
-                      {/* <PreviewWindow width="1080px" height="720px">
-                      </PreviewWindow> */}
-                    </KeyController>
-                  )
+                      <Drawer permanent>
+                        <DrawerHeader>
+                          DrawerHeader
+                        </DrawerHeader>
+                        <DrawerContent>
+                          <ListItem>
+                            <ListItemText>Cookies</ListItemText>
+                          </ListItem>
+                          <ListItem>
+                            <ListItemText>Pizza</ListItemText>
+                          </ListItem>
+                          <ListItem>
+                            <ListItemText>Icecream</ListItemText>
+                          </ListItem>
+                        </DrawerContent>
+                      </Drawer>
+                      <Chart
+                        chartType="ScatterChart"
+                        data={[['Age', 'Weight'], [8, 12], [4, 5.5]]}
+                        options={{}}
+                        graph_id="ScatterChart"
+                        width="100%"
+                        height="400px"
+                        legend_toggle
+                      />
+                    </div>
+                      )
                 } } />
               </Switch>
             </main>
-
-
-            {/* Key Controller */}
-
           </div>
         </Router>
-      </Provider>
     );
   }
 }
-
-// include these in components that will be using redux
-
-// import SideBar from '../../internal/sidebar';
-// import Home from '../home';
-// import MarkdownBody from '../../internal/markdownBody';
-// import MarkdownMeta from '../../internal/markdownMeta';
-// import FeedbackLink from '../../internal/feedback-link';
-// import ComponentPage from '../componentPage';
-// import MotionPage from '../motionPage';
-// import IconsPage from '../iconsPage';
-// import TypePage from '../typePage';
-// import DefaultPage from '../defaultPage';
-// import IllustrationsPage from '../illustrationPage';
-// import Top from '../../internal/go-to-top';
-
-//Libraries to use
-//http://react-dnd.github.io/react-dnd/examples-chessboard-tutorial-app.html
