@@ -97,7 +97,7 @@
     "yml-loader": "^2.1.0"
   },
   "scripts": {
-    "start": "node build/serve.js",
+    "start": "node scripts/serve.js",
     "dev": "node script/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
