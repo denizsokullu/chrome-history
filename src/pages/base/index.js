@@ -104,7 +104,7 @@ const cardData = [
   {
     primaryText:'Your Numbers',
     img:'screen2.svg',
-    secondaryText:'See the places you spend the most time on when you browse, learn something unexpected, become aware of your online habits.'
+    secondaryText:'See the places you spend the most time on when you browse, learn something unexpected, and become aware of your online habits.'
   },
   {
     primaryText:'Your Memories',
