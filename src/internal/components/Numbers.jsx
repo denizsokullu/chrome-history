@@ -102,16 +102,34 @@ export default class Numbers extends React.Component{
         <React.Fragment>
         <div className='page-container-title'>
           Breakdown
+          {
+            chart.data.breakdownData.type ? ` (${chart.data.breakdownData.type})` : null
+          }
         </div>
         <div className={`page-container ${this.state.selectedChart}`}>
           {
-            // data.map(d=>{
-            //   return (
-            //     <div className='breakdown-block'>
-            //       { d }
-            //     </div>
-            //   )
-            // })
+            data.map(d=>{
+              return (
+                <div className='breakdown-block'>
+                  <span className='left'>
+                    <span className='inline'>
+                    {
+                      d.icon ? <img className='icon' src={`/img/${d.icon}`}/> : null
+                    }
+                    {
+                      d.primaryText ? <span className='primary'>{d.primaryText}</span> : null
+                    }
+                  </span>
+                    {
+                      d.secondaryText ? <p className='secondary'>{d.secondaryText}</p> : null
+                    }
+                  </span>
+                  {
+                    d.number ? <span className='number'>{d.number}</span> : null
+                  }
+                </div>
+              )
+            })
           }
         </div>
       </React.Fragment>

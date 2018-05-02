@@ -29,21 +29,219 @@ export default class Discoveries{
     this.summary = {
       title:'New Sites Discovered'
     }
+
     this.breakdownData = {
+      type:'Visits',
       'last24':[
         {
           //url
-          primaryText:'',
+          primaryText:'starwars.wikia.com',
           //date of discovery
-          secondaryText:'',
+          secondaryText:'First Visited Mar 13, 2018',
           //number of Visits
-          number:''
+          number:'58'
+        },
+        {
+          //url
+          primaryText:'figma.com',
+          //date of discovery
+          secondaryText:'First Visited April 4, 2018',
+          //number of Visits
+          number:'45'
+        },
+        {
+          //url
+          primaryText:'material.io/icons',
+          //date of discovery
+          secondaryText:'First Visited Feb 25, 2018',
+          //number of Visits
+          number:'32'
+        },
+        {
+          //url
+          primaryText:'wired.com',
+          //date of discovery
+          secondaryText:'First Visited Mar 3, 2018',
+          //number of Visits
+          number:'29'
+        },
+        {
+          //url
+          primaryText:'quoapp.com',
+          //date of discovery
+          secondaryText:'First Visited April 18, 2018',
+          //number of Visits
+          number:'14'
         }
       ],
-      'last7':[],
-      'last30':[],
-      'last12':[],
-      'allTime':[],
+      'last7':[
+        {
+          //url
+          primaryText:'starwars.wikia.com',
+          //date of discovery
+          secondaryText:'First Visited Mar 13, 2018',
+          //number of Visits
+          number:'58'
+        },
+        {
+          //url
+          primaryText:'figma.com',
+          //date of discovery
+          secondaryText:'First Visited April 4, 2018',
+          //number of Visits
+          number:'45'
+        },
+        {
+          //url
+          primaryText:'material.io/icons',
+          //date of discovery
+          secondaryText:'First Visited Feb 25, 2018',
+          //number of Visits
+          number:'32'
+        },
+        {
+          //url
+          primaryText:'wired.com',
+          //date of discovery
+          secondaryText:'First Visited Mar 3, 2018',
+          //number of Visits
+          number:'29'
+        },
+        {
+          //url
+          primaryText:'quoapp.com',
+          //date of discovery
+          secondaryText:'First Visited April 18, 2018',
+          //number of Visits
+          number:'14'
+        }
+      ],
+      'last30':[
+        {
+          //url
+          primaryText:'starwars.wikia.com',
+          //date of discovery
+          secondaryText:'First Visited Mar 13, 2018',
+          //number of Visits
+          number:'58'
+        },
+        {
+          //url
+          primaryText:'figma.com',
+          //date of discovery
+          secondaryText:'First Visited April 4, 2018',
+          //number of Visits
+          number:'45'
+        },
+        {
+          //url
+          primaryText:'material.io/icons',
+          //date of discovery
+          secondaryText:'First Visited Feb 25, 2018',
+          //number of Visits
+          number:'32'
+        },
+        {
+          //url
+          primaryText:'wired.com',
+          //date of discovery
+          secondaryText:'First Visited Mar 3, 2018',
+          //number of Visits
+          number:'29'
+        },
+        {
+          //url
+          primaryText:'quoapp.com',
+          //date of discovery
+          secondaryText:'First Visited April 18, 2018',
+          //number of Visits
+          number:'14'
+        }
+      ],
+      'last12':[
+        {
+          //url
+          primaryText:'starwars.wikia.com',
+          //date of discovery
+          secondaryText:'First Visited Mar 13, 2018',
+          //number of Visits
+          number:'58'
+        },
+        {
+          //url
+          primaryText:'figma.com',
+          //date of discovery
+          secondaryText:'First Visited April 4, 2018',
+          //number of Visits
+          number:'45'
+        },
+        {
+          //url
+          primaryText:'material.io/icons',
+          //date of discovery
+          secondaryText:'First Visited Feb 25, 2018',
+          //number of Visits
+          number:'32'
+        },
+        {
+          //url
+          primaryText:'wired.com',
+          //date of discovery
+          secondaryText:'First Visited Mar 3, 2018',
+          //number of Visits
+          number:'29'
+        },
+        {
+          //url
+          primaryText:'quoapp.com',
+          //date of discovery
+          secondaryText:'First Visited April 18, 2018',
+          //number of Visits
+          number:'14'
+        }
+      ],
+      'allTime':[
+        {
+          //url
+          primaryText:'starwars.wikia.com',
+          //date of discovery
+          secondaryText:'First Visited Mar 13, 2018',
+          //number of Visits
+          number:'58'
+        },
+        {
+          //url
+          primaryText:'figma.com',
+          //date of discovery
+          secondaryText:'First Visited April 4, 2018',
+          //number of Visits
+          number:'45'
+        },
+        {
+          //url
+          primaryText:'material.io/icons',
+          //date of discovery
+          secondaryText:'First Visited Feb 25, 2018',
+          //number of Visits
+          number:'32'
+        },
+        {
+          //url
+          primaryText:'wired.com',
+          //date of discovery
+          secondaryText:'First Visited Mar 3, 2018',
+          //number of Visits
+          number:'29'
+        },
+        {
+          //url
+          primaryText:'quoapp.com',
+          //date of discovery
+          secondaryText:'First Visited April 18, 2018',
+          //number of Visits
+          number:'14'
+        }
+      ],
     }
   }
   allTime(){

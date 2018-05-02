@@ -104,6 +104,43 @@
   }
 }
 
+.page-container {
+  .breakdown-block{
+    width:100%;
+    box-sizing:border-box;
+    padding:1rem 2rem;
+    position:relative;
+    display:flex;
+    align-items: center;
+    border-bottom:1px solid #E0E0E0;
+    p{
+      margin:0;
+    }
+    .inline{
+      display:flex;
+      align-items: center;
+      img{
+        width:12px;
+        height:auto;
+        margin-right:.5rem;
+      }
+    }
+    .primary{
+      font-size:13px;
+    }
+    .secondary{
+      font-size:13px;
+      margin-top:.5rem;
+      color:$color-text-gray-1;
+    }
+    .number {
+      position:absolute;
+      right:2rem;
+      font-size:18px;
+    }
+  }
+}
+
 .page-container.timeSpent{
 
 

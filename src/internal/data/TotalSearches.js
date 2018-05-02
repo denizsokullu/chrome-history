@@ -33,6 +33,7 @@ export default class TotalSearches{
     }
 
     this.breakdownData = {
+      type:'Percentage',
       'last24':[
         //website links
         {
