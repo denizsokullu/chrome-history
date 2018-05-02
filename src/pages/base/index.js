@@ -104,12 +104,12 @@ const cardData = [
   {
     primaryText:'Your Numbers',
     img:'screen2.svg',
-    secondaryText:'Get a look at the places you spend the most time on when you browse, learn something unexpected, become aware of how you browse.'
+    secondaryText:'See the places you spend the most time on when you browse, learn something unexpected, become aware of your online habits.'
   },
   {
     primaryText:'Your Memories',
     img:'screen3.svg',
-    secondaryText:'A chance to peek back and see what defined your Google Chrome experience and be reminded of what you learned and accomplished with Google. '
+    secondaryText:'A chance to peek back at what has defined your Google Chrome experience and what you have accomplished using Google.'
   }
 ]
 
