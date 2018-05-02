@@ -1,0 +1,139 @@
+.page-container-title{
+  color:$color-text-gray-1;
+  font-size:15px;
+  margin-bottom:18px;
+  width:100%;
+}
+.page-container{
+
+  background-color:white;
+  box-shadow:0 0 2px 2px rgba(0,0,0,.10);
+  border-radius:3px;
+  margin-bottom:3rem;
+
+  .chart-selection{
+    display:flex;
+    flex-direction: row;
+
+    // margin-bottom:2rem;
+
+    .chart-selection-box{
+      padding:1rem 1.5rem;
+      min-width:120px;
+      &.selected {
+        background-color:#EBEBEB;
+      }
+      &:hover{
+        cursor:pointer;
+      }
+      p{
+        margin-top:0;
+        margin-bottom:.5rem;
+        user-select:none;
+        &:hover{
+          cursor:pointer;
+        }
+      }
+      .title{
+        font-size:12px;
+        margin-bottom:.5rem;
+        color:rgba(0,0,0,.87);
+      }
+      .number {
+        font-size:24px;
+        font-weight:400px;
+      }
+      .change {
+        &.positive{
+          color:green;
+        }
+        &.negative{
+          color:red
+        }
+        font-size:14px;
+        margin-bottom:0;
+      }
+    }
+  }
+  .chart-container{
+    padding:2rem;
+    width:calc(100% - 4rem);
+    overflow:hidden;
+    & > div {
+      height:auto!important;
+      width:auto!important;
+    }
+
+    &#chartcategories svg {
+      text[font-weight]{
+        font-weight:normal!important;
+        font-weight:300!important;
+      }
+      text[text-anchor='start']{
+        font-size:14px;
+        font-weight:300!important;
+        &:hover {
+          cursor:default;
+        }
+      }
+      text[text-anchor='end']{
+        opacity:0.6;
+        font-size:13px!important;
+        font-weight:300!important;
+        &:hover {
+          cursor:default;
+        }
+      }
+      & > g > g > g:last-child text {
+
+        font-size:18px!important;
+        font-weight:500!important;
+        fill:$color-blue!important;
+      }
+      & > g > g > g:nth-child(2) text {
+        fill:$color-text-gray-1!important;
+      }
+      & > g > g path {
+
+        stroke: white;
+        stroke-width: 3px;
+        stroke-linecap: round;
+
+      }
+    }
+  }
+}
+
+.page-container.timeSpent{
+
+
+
+  .breakdown-block{
+
+
+
+  }
+
+}
+.page-container.discoveries{
+
+
+
+  .breakdown-block{
+
+
+
+  }
+
+}
+.page-container.totalSearches{
+
+
+
+  .breakdown-block{
+
+
+
+  }
+
+}

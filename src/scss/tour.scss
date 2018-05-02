@@ -1,0 +1,83 @@
+.card-wrapper{
+  height:100vh;
+  width:100vw;
+  position:absolute;
+  z-index:1999;
+  background-color:rgba(0,0,0,.7);
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+  .chevron{
+    width:48px;
+    height:48px;
+    background-color:white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    border-radius:50%;
+    top:calc(50% - 24px);
+    &:hover{
+      cursor:pointer;
+    }
+    &.chevron-right{
+      right:-80px;
+    }
+    &.chevron-left{
+      left:-80px;
+    }
+  }
+
+  .card-carousel{
+    position:relative;
+    width:800px;
+    height:600px;
+    background-color:white;
+    border-radius:10px;
+
+    .tour-card{
+
+      padding:2rem;
+      display:flex;
+      justify-content: center;
+      flex-direction: column;
+
+      h3{
+        text-align:center;
+        font-size:27px;
+        font-weight:500;
+        margin-bottom:1rem;
+      }
+      img{
+        width:300px;
+        margin:0 auto;
+      }
+      p{
+        font-size:16px;
+        color:$color-text-gray-1;
+        padding:0 17% 0 20%;
+        line-height:26px;
+      }
+      div{
+
+        margin:1rem auto 0 auto;
+        .dot {
+          display:inline-block;
+          width:10px;
+          height:10px;
+          margin-right:8px;
+          border-radius:50%;
+          background-color:$color-text-gray-1;
+          opacity:.5;
+          &.current{
+            background-color:$color-blue;
+            opacity:1;
+          }
+        }
+      }
+
+    }
+  }
+}
