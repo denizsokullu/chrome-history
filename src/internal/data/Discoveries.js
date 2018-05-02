@@ -30,7 +30,16 @@ export default class Discoveries{
       title:'New Sites Discovered'
     }
     this.breakdownData = {
-      'last24':[],
+      'last24':[
+        {
+          //url
+          primaryText:'',
+          //date of discovery
+          secondaryText:'',
+          //number of Visits
+          number:''
+        }
+      ],
       'last7':[],
       'last30':[],
       'last12':[],

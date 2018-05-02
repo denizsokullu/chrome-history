@@ -15,7 +15,7 @@ import Ripple from 'rmwc/Ripple';
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 
 import ListIcon from '@material-ui/icons/ViewList';
-import SettingsIcon from '@material-ui/icons/Settings';
+
 import FavoriteIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteFilled from '@material-ui/icons/Favorite';
 
@@ -73,7 +73,7 @@ export default class Content extends React.Component {
     }
 
     if(window.location.pathname.split('/')[1] === 'memories'){
-      this.state.currentDate = 'last12';
+      this.state.currentDate = 'allTime';
       this.state.currentLocation = '/memories';
     }
     else{
@@ -115,7 +115,7 @@ export default class Content extends React.Component {
   setRoute(path){
 
     if(path === '/memories'){
-      this.setState({currentDate:'last12',currentLocation:path});
+      this.setState({currentDate:'allTime',currentLocation:path});
     }
     else{
       this.setState({currentDate:'last24',currentLocation:path});

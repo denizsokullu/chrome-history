@@ -94,22 +94,24 @@ export default class Numbers extends React.Component{
 
   loadBreakdown(){
     let chart = this.state.charts[this.state.selectedChart];
+    console.log(chart);
     if(chart.data.breakdownData){
+      console.log(this.state.timeSelected);
       let data = chart.data.breakdownData[this.state.timeSelected];
       return (
         <React.Fragment>
         <div className='page-container-title'>
           Breakdown
         </div>
-        <div className={'page-container '+this.state.selectedChart}>
+        <div className={`page-container ${this.state.selectedChart}`}>
           {
-            data.map(d=>{
-              return (
-                <div className='breakdown-block'>
-                  { d }
-                </div>
-              )
-            })
+            // data.map(d=>{
+            //   return (
+            //     <div className='breakdown-block'>
+            //       { d }
+            //     </div>
+            //   )
+            // })
           }
         </div>
       </React.Fragment>

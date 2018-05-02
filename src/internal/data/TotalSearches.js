@@ -10,6 +10,7 @@ export default class TotalSearches{
         label: 'Searches',
       }
     ]
+
     this.options = {
       animation:{
         duration: 1000,
@@ -26,15 +27,72 @@ export default class TotalSearches{
      width: 1120 - 64,
      height: 300
     };
+
     this.summary = {
       title:'Total Searches'
     }
+
     this.breakdownData = {
-      'last24':[],
-      'last7':[],
-      'last30':[],
-      'last12':[],
-      'allTime':[],
+      'last24':[
+        //website links
+        {
+          primaryText:'Website Links',
+          number:'78%'
+        },
+        //google search queries
+        {
+          primaryText:'Search Queries',
+          number:'22%'
+        },
+      ],
+      'last7':[
+        //website links
+        {
+          primaryText:'Website Links',
+          number:'72%'
+        },
+        //google search queries
+        {
+          primaryText:'Search Queries',
+          number:'28%'
+        },
+      ],
+      'last30':[
+        //website links
+        {
+          primaryText:'Website Links',
+          number:'81%'
+        },
+        //google search queries
+        {
+          primaryText:'Search Queries',
+          number:'19%'
+        },
+      ],
+      'last12':[
+        //website links
+        {
+          primaryText:'Website Links',
+          number:'75%'
+        },
+        //google search queries
+        {
+          primaryText:'Search Queries',
+          number:'25%'
+        },
+      ],
+      'allTime':[
+        //website links
+        {
+          primaryText:'Website Links',
+          number:'85%'
+        },
+        //google search queries
+        {
+          primaryText:'Search Queries',
+          number:'15%'
+        },
+      ],
     }
   }
   allTime(){

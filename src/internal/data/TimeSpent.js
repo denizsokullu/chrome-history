@@ -35,7 +35,8 @@ export default class TimeSpent{
           primaryText:'',
           secondaryText:'',
           number:'',
-        }
+          icon:'',
+        },
       ],
       'last7':[
 
