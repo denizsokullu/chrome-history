@@ -8,7 +8,7 @@
     "html-loader": "^0.4.5",
     "jszip": "^3.1.5",
     "markdown-loader": "^2.0.0",
-    "material-ui": "^1.0.0-beta.43",
+    "material-ui": "^1.0.0-beta.44",
     "material-ui-icons": "^1.0.0-beta.36",
     "re-resizable": "^4.4.8",
     "react": "^16.2.0",
