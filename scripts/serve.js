@@ -1,6 +1,15 @@
-var connect = require('connect');
-var serveStatic = require('serve-static');
-var port = process.env.PORT || 8000;
-connect().use(serveStatic(__dirname)).listen(port,function(){
-    console.log('Server running on '+port+'...');
-});
+const express = require('express');
+const app = express();
+const path = require('path');
+
+app.use("/img",express.static(path.join(__dirname,'../build/img')))
+app.use("/static",express.static(path.join(__dirname,'../build/static')))
+
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'../build/index.html'));
+})
+
+const port = process.env.port || 3000;
+
+console.log(`Listening at ${port}`);
+app.listen(port);

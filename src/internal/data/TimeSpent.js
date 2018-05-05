@@ -102,7 +102,7 @@ export default class TimeSpent{
         {
           primaryText:'Facebook',
           secondaryText:'120 hrs active ● 6.5 hrs background',
-          number:'34%',
+          number:'34  %',
           icon:'facebook.png',
         },
         {
