@@ -41,7 +41,7 @@ export default class Memories extends React.Component{
     return (
       <div className='memories-wrapper'>
         {/* <Switch> */}
-          <Route exact path='/memories' component={()=>{
+          <Route exact path='/browsing-trends/memories' component={()=>{
             return(
               <React.Fragment>
                 <div className='page-container-title'>
@@ -79,7 +79,7 @@ export default class Memories extends React.Component{
               </React.Fragment>
             )
           }}/>
-          <Route path="/memories/:id" component={
+          <Route path="/browsing-trends/memories/:id" component={
             ({ match }) => {
               let memory = memoryCardData.concat(memoryCardData2017).concat(memoryCardData2016).filter(m=>{
                 return m.id === match.params.id
@@ -295,7 +295,7 @@ class MemoryCardExpanded extends React.Component{
           >
         {/*  */}
           <div className='expanded-compartment first'>
-            <StyledLink to='/memories'> <ArrowBack/> </StyledLink>
+            <StyledLink to='/browsing-trends/memories'> <ArrowBack/> </StyledLink>
             <div className='memory-card-content'>
               <p className='memory-card-title'>{this.props.title}</p>
               <p className='memory-card-meta'>{this.props.date} <span style={{fontSize:'8px',position:'relative',top:'-2px'}}>●</span> {this.props.searchCount} Related</p>
@@ -377,7 +377,7 @@ class MemoryCard extends React.Component{
   render(){
     return(
       <div className={`memory-card new memory-card-${this.props.size} ${this.props.first ? 'first' : ''}`} onClick={this.props.clickHandler}>
-        <StyledLink to={`/memories/${this.props.id}`}>
+        <StyledLink to={`/browsing-trends/memories/${this.props.id}`}>
           <Elevation
             z={this.state.elevation}
             transition
@@ -385,7 +385,7 @@ class MemoryCard extends React.Component{
             onMouseOut={() => this.setState({elevation: 3})}
             >
           <div className={`memory-card-img`}>
-            <img src={`img/${this.props.image}`}/>
+            <img src={`/img/${this.props.image}`}/>
           </div>
           <div className='memory-card-content'>
             <p className='memory-card-title'>{this.props.title}</p>

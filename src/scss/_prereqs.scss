@@ -5,6 +5,14 @@ body {
     font-family:"Roboto", sans-serif;
   }
 }
+a {
+  text-decoration:none;
+  &:focus, &:focus *{
+    background-color:inherit;
+    color:inherit;
+    fill:inherit;
+  }
+}
 
 $color-blue:#4385F4;
 $color-content-bg:#F5F5F5;

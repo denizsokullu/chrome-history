@@ -71,7 +71,7 @@ class CustomizedTabs extends React.Component {
   };
 
   mapPathToIndex(path){
-    return path === '/numbers' ? 0 : 1
+    return path === '/browsing-trends/numbers' ? 0 : 1
   }
 
   route(path) {
@@ -91,11 +91,11 @@ class CustomizedTabs extends React.Component {
           onChange={this.handleChange}
           classes={{ root: classes.tabsRoot, indicator: classes.tabsIndicator }}
         >
-          <Tab onClick={()=>{ this.route('/numbers') }}
+          <Tab onClick={()=>{ this.route('/browsing-trends/numbers') }}
             classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
             label="Numbers"
           />
-          <Tab onClick={()=>{ this.route('/memories') }}
+          <Tab onClick={()=>{ this.route('/browsing-trends/memories') }}
             classes={{ root: classes.tabRoot, selected: classes.tabSelected }}
             label="Memories"
           />
@@ -107,6 +107,7 @@ class CustomizedTabs extends React.Component {
 
 CustomizedTabs.propTypes = {
   classes: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(withRouter(CustomizedTabs));

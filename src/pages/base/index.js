@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 
-import Content from '../../internal/components/Content';
+import Content from '../../internal/components/browsingTrends/Content';
+import RecentContent from '../../internal/components/recent/mainPage';
 import Sidebar from '../../internal/components/Sidebar';
 
 import { TabBar } from 'rmwc';
@@ -49,6 +50,7 @@ export default class Base extends Component {
             <main className="ic-content">
               <CardWrapper/>
               <div>
+                {/* Top Nav Bar */}
                 <Toolbar>
                   <ToolbarRow>
                     <ToolbarTitle>
@@ -74,17 +76,20 @@ export default class Base extends Component {
                     </ToolbarTitle>
                   </ToolbarRow>
                 </Toolbar>
+
                 <div className='main-wrapper'>
+                  {/* Sidebar */}
                   <Drawer permanent>
                     <Sidebar/>
                   </Drawer>
-                  <Route path='/' component={
-                    ()=>{
-                      return(
-                        <Content/>
-                      )
-                    }
-                  }/>
+                  {/* Main Content Container */}
+                  <Switch>
+                  <Route exact path='/' component={()=>{
+                    return (<Redirect to='/recent'/>)
+                  }}/>
+                  <Route path='/recent' component={RecentContent}/>
+                  <Route path='/browsing-trends' component={Content}/>
+                  </Switch>
                 </div>
               </div>
             </main>

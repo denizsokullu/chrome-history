@@ -1,10 +1,10 @@
 import React from 'react';
 import { Chart } from 'react-google-charts';
 
-import TimeSpent from '../data/TimeSpent';
-import Categories from '../data/Categories';
-import Discoveries from '../data/Discoveries';
-import TotalSearches from '../data/TotalSearches';
+import TimeSpent from '../../data/TimeSpent';
+import Categories from '../../data/Categories';
+import Discoveries from '../../data/Discoveries';
+import TotalSearches from '../../data/TotalSearches';
 
 import {  Ripple } from 'rmwc/Ripple';
 
@@ -142,7 +142,6 @@ export default class Numbers extends React.Component{
 
     let chart = this.state.charts[this.state.selectedChart];
     let data = this.getSelectedTimeData(chart.data);
-    console.log(this.state.charts)
     return (
       <React.Fragment>
       <div className='page-container-title'>

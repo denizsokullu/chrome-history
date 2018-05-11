@@ -21,9 +21,7 @@ import FavoriteFilled from '@material-ui/icons/Favorite';
 
 import Tabs from './Tabs';
 
-const iconStyle = {
-
-}
+const iconStyle = {}
 
 export default class Content extends React.Component {
 
@@ -31,13 +29,13 @@ export default class Content extends React.Component {
     super(props);
     this.state = {
       menuIsOpen:false,
-      currentLocation:'/numbers',
+      currentLocation:'/browsing-trends/numbers',
       currentDate:'last24',
       shadow:false,
       currentChart:'timeSpent',
       fav:false,
       dates:{
-        '/numbers':{
+        '/browsing-trends/numbers':{
                     'last24':{
                       pretty:'Last 24 Hours',
                       date:'Apr 29 8:32 AM - Now'
@@ -59,7 +57,7 @@ export default class Content extends React.Component {
                       date:'May 21, 2010 - Apr 30, 2018'
                     }
                   },
-        '/memories':{
+        '/browsing-trends/memories':{
                     'last12':{
                       pretty:'Last Year',
                       date:'Apr 30, 2017 - Apr 30, 2018'
@@ -71,14 +69,14 @@ export default class Content extends React.Component {
                   }
       }
     }
-
-    if(window.location.pathname.split('/')[1] === 'memories'){
+    // console.log(window.location.pathname.split('/'));
+    if(window.location.pathname.split('/')[2] === 'memories'){
       this.state.currentDate = 'allTime';
-      this.state.currentLocation = '/memories';
+      this.state.currentLocation = '/browsing-trends/memories';
     }
     else{
       this.state.currentDate = 'last24';
-      this.state.currentLocation = '/numbers';
+      this.state.currentLocation = '/browsing-trends/numbers';
     }
 
 
@@ -94,11 +92,35 @@ export default class Content extends React.Component {
     this.setState({currentChart:newChart});
   }
 
+  // componentWillUpdate(){
+  //   if(window.location.pathname.split('/')[2] === 'memories'){
+  //     this.setState({currentDate:'allTime',currentLocation:'/browsing-trends/memories'})
+  //   }
+  //   else{
+  //     this.setState({currentDate:'last24',currentLocation:'/browsing-trends/numbers'})
+  //   }
+  // }
+
   fav(){
     this.setState({fav:!this.state.fav});
   }
 
+  componentWillReceiveProps(){
+      if(window.location.pathname.split('/')[2] === 'memories'){
+        this.setState({currentDate:'allTime',currentLocation:'/browsing-trends/memories'})
+      }
+      else{
+        this.setState({currentDate:'last24',currentLocation:'/browsing-trends/numbers'})
+      }
+  }
+
   handleScrollCallback(evt) {
+    // DEF
+    // this is the shadow for the secondary menu - it changes the state
+    // TASK
+    // figure out a way to not mess up the data when
+    // this event changes the state.
+
     // if(!this.state.shadow && this.refs.content.scrollTop >= 85){
     //   this.setState({shadow:true});
     // }
@@ -114,7 +136,7 @@ export default class Content extends React.Component {
 
   setRoute(path){
 
-    if(path === '/memories'){
+    if(path === '/browsing-trends/memories'){
       this.setState({currentDate:'allTime',currentLocation:path});
     }
     else{
@@ -133,20 +155,16 @@ export default class Content extends React.Component {
       <div className='content-container'>
         <div className={`top-navigation ${this.state.shadow ? 'shadow-active' : ''}`}>
           <Tabs current={this.state.currentLocation} onClick={this.setRoute}/>
-          {/* <TabBar>
-            <LinkedTab to='/numbers' onClick={this.setRoute}> Numbers </LinkedTab>
-            <LinkedTab to='/memories' onClick={this.setRoute}> Memories </LinkedTab>
-          </TabBar> */}
         <Switch>
-          <Route path='/numbers' component={()=>{
+          <Route path='/browsing-trends/numbers' component={()=>{
             return(
               <DateSelector
-                dates={this.state.dates['/numbers']}
+                dates={this.state.dates['/browsing-trends/numbers']}
                 currentDate={this.state.currentDate}
                 handleDateChange={this.handleDateChange}/>
             )
           }}/>
-          <Route path='/memories' component={()=>{
+          <Route path='/browsing-trends/memories' component={()=>{
             return(
             <React.Fragment>
               <div className='memories-tab-icons'>
@@ -159,7 +177,7 @@ export default class Content extends React.Component {
                 }
               </div>
               <DateSelector
-                dates={this.state.dates['/memories']}
+                dates={this.state.dates['/browsing-trends/memories']}
                 currentDate={this.state.currentDate}
                 handleDateChange={this.handleDateChange}/>
               </React.Fragment>
@@ -168,12 +186,12 @@ export default class Content extends React.Component {
         </Switch>
         </div>
         <div className='content' ref="content" onScroll={this.handleScrollCallback}>
-            <Route path='/numbers' component={()=>{
+            <Route path='/browsing-trends/numbers' component={()=>{
               return(
                 <Numbers timeSelected={this.state.currentDate} chartChange={this.handleChartChange} selectedChart={this.state.currentChart}/>
               )
             }}/>
-            <Route path='/memories' component={()=>{
+            <Route path='/browsing-trends/memories' component={()=>{
               return(
                 <Memories clickHandler={this.resetHeight}/>
               )
@@ -200,7 +218,6 @@ class DateSelector extends React.Component{
 
   render(){
     let dates = this.props.dates;
-    console.log(dates,this.state.currentDate);
     return(
       <MenuAnchor>
         <Menu

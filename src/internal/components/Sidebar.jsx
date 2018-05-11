@@ -19,10 +19,15 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import ShareIcon from '@material-ui/icons/Share';
 
+
+import {withRouter} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+
+
 const styles = theme => ({
   root: {
     maxWidth: 360,
-    // backgroundColor: theme.palette.background.paper,
   },
   nested: {
     paddingLeft: theme.spacing.unit * 4,
@@ -55,10 +60,13 @@ class NestedList extends React.Component {
 
   handleClickRecent = () => {
     this.setState({ openRecent: !this.state.openRecent });
+    this.history.history.push('/recents');
+    console.log(this.props.history)
   };
 
   handleClickSaved = () => {
     this.setState({ openSaved: !this.state.openSaved });
+    this.history.history.push('/browsing-trends');
   };
 
   render() {
@@ -69,13 +77,17 @@ class NestedList extends React.Component {
         <List
           component="nav"
         >
-          <ListItem button onClick={this.handleClickRecent}>
-            <ListItemIcon>
-              <RestoreIcon style={icon}/>
-            </ListItemIcon>
-            <ListItemText inset primary="Recent"/>
-            {this.state.openRecent ? <ExpandLess style={icon}/> : <ExpandMore style={icon}/>}
-          </ListItem>
+
+          <Link to="/recent">
+            <ListItem button onClick={this.handleClickRecent}>
+              <ListItemIcon>
+                <RestoreIcon style={icon}/>
+              </ListItemIcon>
+              <ListItemText inset primary="Recent"/>
+              {this.state.openRecent ? <ExpandLess style={icon}/> : <ExpandMore style={icon}/>}
+            </ListItem>
+          </Link>
+
           <Collapse in={this.state.openRecent} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={classes.nested}>
@@ -92,6 +104,7 @@ class NestedList extends React.Component {
               </ListItem>
             </List>
           </Collapse>
+
           <ListItem button onClick={this.handleClickSaved}>
             <ListItemIcon>
               <LibraryBooksIcon style={icon}/>
@@ -99,6 +112,8 @@ class NestedList extends React.Component {
             <ListItemText inset primary="Saved"/>
             {this.state.openSaved ? <ExpandLess style={icon}/> : <ExpandMore style={icon}/>}
           </ListItem>
+
+
           <Collapse in={this.state.openSaved} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={classes.nested}>
@@ -112,12 +127,15 @@ class NestedList extends React.Component {
               </ListItem>
             </List>
           </Collapse>
-          <ListItem button>
-            <ListItemIcon>
-              <EqualizerIcon style={iconSelected}/>
-            </ListItemIcon>
-            <ListItemText inset primary="Browsing Trends" style={selected} className='listItem-selected'/>
-          </ListItem>
+
+          <Link to='/browsing-trends/numbers'>
+            <ListItem button>
+                <ListItemIcon>
+                  <EqualizerIcon style={iconSelected}/>
+                </ListItemIcon>
+                <ListItemText inset primary="Browsing Trends" style={selected} className='listItem-selected'/>
+            </ListItem>
+          </Link>
           <ListItem button>
             <ListItemIcon>
               <ShareIcon style={icon}/>
@@ -134,4 +152,4 @@ NestedList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NestedList);
+export default withRouter(withStyles(styles)(NestedList));
