@@ -103,17 +103,17 @@ export default class Base extends Component {
 const cardData = [
   {
     primaryText:'Welcome to Browsing Trends',
-    img:'screen1.svg',
+    img:'screen-new-01.svg',
     secondaryText:'Your data can be powerful in your hands. Take a look at your browsing in a light you’ve never seen before and be reminded of amazing things that Google has helped you learn and discover. '
   },
   {
     primaryText:'Your Numbers',
-    img:'screen2.svg',
+    img:'screen-new-02.svg',
     secondaryText:'See the places you spend the most time on when you browse, learn something unexpected, and become aware of your online habits.'
   },
   {
     primaryText:'Your Memories',
-    img:'screen3.svg',
+    img:'screen-new-03.svg',
     secondaryText:'A chance to peek back at what has defined your Google Chrome experience and what you have accomplished using Google.'
   }
 ]
@@ -168,7 +168,7 @@ class CardWrapper extends Component{
   render(){
     let card = cardData[this.state.current];
     return(
-    <div className='card-wrapper' style={this.state.disabled ? {display:'none'} : {}}>
+    <div className='card-wrapper' style={this.state.disabled ? {} : {}}>
       <div className='card-carousel'>
         {
           this.state.current !== 0
