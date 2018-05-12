@@ -377,15 +377,15 @@ export default class TimeSpent{
     let data = {};
     data.cols = this.cols;
     data.rows = [
-      [toYear(2010,11),23369],
-      [toYear(2011,11),45613],
-      [toYear(2012,11),56314],
-      [toYear(2013,11),84323],
-      [toYear(2014,11),123403],
-      [toYear(2015,11),142359],
-      [toYear(2016,11),194341],
-      [toYear(2017,11),203488],
-      [toYear(2018,3),74830]].map(row=>{
+      [toYear(2010),23369],
+      [toYear(2011),45613],
+      [toYear(2012),56314],
+      [toYear(2013),84323],
+      [toYear(2014),123403],
+      [toYear(2015),142359],
+      [toYear(2016),194341],
+      [toYear(2017),203488],
+      [toYear(2018),74830]].map(row=>{
        let minutes = row[1];
        let hours = parseFloat(minutes/60).toFixed(1);
        return [row[0],Math.round(hours * 100) / 100];
@@ -548,8 +548,7 @@ export default class TimeSpent{
     [ toHours(23),	57],
     [ toHours(24), 24]];
 
-     data.options = this.options;
-
+    data.options = this.options;
     data.summary = this.summary;
     data.summary.number = 423;
     data.summary.measure = 'minutes'
@@ -573,6 +572,6 @@ function toMonths(year,month){
   return new Date(year,month-1,1,0);
 }
 
-function toYear(year,m){
-  return new Date(year,m,1)
+function toYear(year){
+  return new Date(year)
 }

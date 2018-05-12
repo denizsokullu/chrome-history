@@ -24,6 +24,7 @@
     "react-redux": "^5.0.6",
     "react-rnd": "^7.4.0",
     "react-router-dom": "4.1.1",
+    "react-scroll": "^1.7.9",
     "reactcss": "^1.2.3",
     "redux": "^3.7.2",
     "redux-ignore": "^1.2.5",
@@ -97,7 +98,7 @@
     "yml-loader": "^2.1.0"
   },
   "scripts": {
-    "start": "node scripts/serve.js",
+    "start": "node scripts/start.js",
     "dev": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"

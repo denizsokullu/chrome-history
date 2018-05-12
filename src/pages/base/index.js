@@ -48,50 +48,62 @@ export default class Base extends Component {
           <MuiThemeProvider>
           <div className="ic-root">
             <main className="ic-content">
-              <CardWrapper/>
-              <div>
-                {/* Top Nav Bar */}
-                <Toolbar>
-                  <ToolbarRow>
-                    <ToolbarTitle>
-                      <span style={{display:'flex',alignItems:'center',marginLeft:'.5rem'}}>
-                        <img src='/img/logo.svg' style={{width:'70px',marginRight:'.3rem',paddingTop:'1px'}}/>
-                        <span style={{fontWeight:500}}></span>
-                        History
-                      </span>
-                      <div className='search-wrapper'>
-                        <div className='search'>
-                          <div className='search-bar'>
-                            <SearchIcon className='search-icon'/>
-                            <input placeholder="Search Trends"></input>
-                            <FilterListIcon className='filter-icon'/>
-                          </div>
-                          <SettingsIcon/>
-                          <FullScreenExitIcon/>
-                        </div>
-                    </div>
-                    <span className='profile-photo'>
-                      <img src='/img/profile.png'/>
-                    </span>
-                    </ToolbarTitle>
-                  </ToolbarRow>
-                </Toolbar>
 
-                <div className='main-wrapper'>
-                  {/* Sidebar */}
-                  <Drawer permanent>
-                    <Sidebar/>
-                  </Drawer>
-                  {/* Main Content Container */}
-                  <Switch>
-                  <Route exact path='/' component={()=>{
-                    return (<Redirect to='/recent'/>)
-                  }}/>
-                  <Route path='/recent' component={RecentContent}/>
-                  <Route path='/browsing-trends' component={Content}/>
-                  </Switch>
+              <Switch>
+              <Route path='/sidebar' component={()=>{
+                return (<div>This is the sidebar</div>)
+              }}/>
+              <Route path='/' component={()=>{
+                return(
+                <div>
+                  {/* Top Nav Bar */}
+                  <Toolbar>
+                    <ToolbarRow>
+                      <ToolbarTitle>
+                        <span style={{display:'flex',alignItems:'center',marginLeft:'.5rem'}}>
+                          <img src='/img/logo.svg' style={{width:'70px',marginRight:'.3rem',paddingTop:'1px'}}/>
+                          <span style={{fontWeight:500}}></span>
+                          History
+                        </span>
+                        <div className='search-wrapper'>
+                          <div className='search'>
+                            <div className='search-bar'>
+                              <SearchIcon className='search-icon'/>
+                              <input placeholder="Search Trends"></input>
+                              <FilterListIcon className='filter-icon'/>
+                            </div>
+                            <SettingsIcon/>
+                            <Link to='/sidebar'>
+                                <FullScreenExitIcon/>
+                            </Link>
+                          </div>
+                      </div>
+                      <span className='profile-photo'>
+                        <img src='/img/profile.png'/>
+                      </span>
+                      </ToolbarTitle>
+                    </ToolbarRow>
+                  </Toolbar>
+
+                  <div className='main-wrapper'>
+                    {/* Sidebar */}
+                    <Drawer permanent>
+                      <Sidebar/>
+                    </Drawer>
+                    {/* Main Content Container */}
+                    <Switch>
+                    <Route exact path='/' component={()=>{
+                      return (<Redirect to='/recent'/>)
+                    }}/>
+                    <Route path='/recent' component={RecentContent}/>
+                    <Route path='/browsing-trends' component={Content}/>
+                    </Switch>
+                  </div>
                 </div>
-              </div>
+              )
+              }}/>
+              </Switch>
+              <CardWrapper/>
             </main>
           </div>
           </MuiThemeProvider>
@@ -168,7 +180,7 @@ class CardWrapper extends Component{
   render(){
     let card = cardData[this.state.current];
     return(
-    <div className='card-wrapper' style={this.state.disabled ? {} : {}}>
+    <div className='card-wrapper' style={this.state.disabled ? {display:'none'} : {}}>
       <div className='card-carousel'>
         {
           this.state.current !== 0

@@ -2,6 +2,13 @@
   display:flex;
   flex-wrap:wrap;
 }
+.card-row-wrapper{
+  margin-bottom:100px;
+}
+$card-title-h:45px;
+$card-h:150px;
+$card-w:183px;
+
 .card-row-title{
   color:#616161;
   font-size:14px;
@@ -34,19 +41,31 @@ div[class*='MuiPaper']{
   z-index:100;
 }
 .card-wrapper-recents {
-  width:160px;
-  height:120px;
-  margin-right:1.5rem;
-  margin-bottom:2.5rem;
+  width:$card-w;
+  height:$card-h;
+  margin-right:1rem;
+  margin-bottom:2rem;
   border-radius:3px;
   box-shadow:0 2px 4px 0 rgba(0,0,0,.5);
+  box-sizing:border-box;
   position:relative;
   overflow:hidden;
-  transition:margin .3s ease-in-out;
+
+  transition-timing-function:ease-out;
+  transition-property: margin, box-shadow, transform;
+  transition-duration:.5s, .2s, .2s;
 
   &.selected {
-    margin-bottom:600px;
-    transition:margin .3s ease-in-out;
+
+    transition-timing-function:ease-in;
+    transition-property: margin, box-shadow, transform;
+    transition-duration:.5s, .2s, .2s;
+    transition-delay: .4s, .4s, .4s;
+
+    margin-bottom:2048px;
+    transform:translateY(-8px);
+    box-shadow:0 2px 14px 0 rgba(0,0,0,.8);
+
   }
   // &:hover .card-overlay{
   //   display:block;
@@ -60,7 +79,7 @@ div[class*='MuiPaper']{
     top:0;
     left:0;
     width:100%;
-    height:calc(100% - 40px);
+    height:calc(100% - #{$card-title-h});
     display:flex;
     background: rgba(0,0,0,0.60);
     color:white;
@@ -97,7 +116,7 @@ div[class*='MuiPaper']{
     height:100%;
 
     .card-image{
-      height:calc(100% - 40px);
+      height:calc(100% - #{$card-title-h});
       width:100%;
       img{
         height:100%;
@@ -108,10 +127,11 @@ div[class*='MuiPaper']{
     .card-title{
       box-sizing:border-box;
       padding:.25rem .5rem;
-      height:40px;
+      height:$card-title-h;
       background-color:white;
       width:100%;
       display:flex;
+      align-items: center;
       .title{
         display:flex;
         align-items: center;
@@ -122,9 +142,10 @@ div[class*='MuiPaper']{
           white-space:nowrap;
         }
         .icon{
+          display:flex;
           margin-right:6px;
           img {
-            width:14px;
+            height:12px;
           }
         }
       }
@@ -137,9 +158,163 @@ div[class*='MuiPaper']{
         color:$color-text-gray-1;
         font-size:11px;
         padding-top:4px;
+        position:relative;
+        top:-8px;
       }
     }
 
   }
 
+}
+
+.recent-large-card{
+  width:981px;
+  position:absolute;
+  background-color:white;
+  border-radius:3px;
+  overflow:hidden;
+  height:2000px;
+  box-shadow:0 2px 4px 0 rgba(0,0,0,0.5);
+  display:none;
+
+  transition:clip-path .4s;
+  will-change:clip-path;
+  transition-timing-function:cubic-bezier(0.230, 1.240, 0.295, 0.915);
+
+  clip-path: polygon(-4px -2px, calc(100% + 4px) -2px, -4px -2px, calc(100% + 4px) -2px);
+
+  &.open{
+    clip-path: polygon(-4px -2px, calc(100% + 4px) -2px, calc(100% + 4px) calc(100% + 2px), -4px calc(100% + 2px));
+    transition:clip-path .4s;
+    transition-timing-function:cubic-bezier(1.000, 0.000, 0.740, 0.815);
+
+  }
+
+  &.visible{
+    display:block;
+  }
+
+  & > div {
+    padding:1rem 5rem;
+  }
+  .header {
+    border-bottom:1px solid #D8D8D8;
+  }
+  .links {
+    padding-top:2.5rem;
+    padding-bottom:2.5rem;
+
+    .link-card{
+
+      display:flex;
+      position:relative;
+
+      margin-bottom:2rem;
+
+      border:1px solid #D8D8D8;
+      border-radius:3px;
+
+      span[class*='Checkbox']{
+        position:absolute;
+        left:-4rem;
+        top:calc(50% - 24px);
+        svg {
+          fill:$color-text-gray-1;
+        }
+      }
+      span[class*='checked'] {
+        svg {
+          fill:$color-blue;
+        }
+      }
+      span[class*='Ripple'] {
+        color:$color-blue;
+      }
+
+
+      .card-content {
+
+        padding:1.25rem 2.5rem 1.5rem 2rem;
+        width:calc(100% - 265px);
+        box-sizing: border-box;
+
+        .top-row {
+          display:flex;
+          margin-bottom:.5rem;
+        }
+
+        .top-row span {
+
+          font-size:14px;
+          width:80%;
+
+          &.time {
+            width:20%;
+            text-align:right;
+            color:$color-text-gray-1;
+            font-size:12px;
+          }
+
+        }
+
+        .url {
+          font-size:13px;
+          color:$color-text-gray-1;
+          overflow:hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          padding-right:4rem;
+          box-sizing:border-box;
+        }
+
+        .icons {
+          opacity:0;
+          transition:all .2s;
+          position:absolute;
+          bottom:.75rem;
+          svg {
+            margin-right:1rem;
+            color:$color-text-gray-1;
+            width:20px;
+            height:20px;
+            &:hover {
+              cursor:pointer;
+              opacity:.8;
+            }
+          }
+        }
+
+        position:relative;
+
+      }
+
+      &:hover {
+
+        .icons {
+          opacity:1;
+        }
+
+      }
+
+      .close-icon {
+        svg {
+          color:$color-text-gray-1;
+          position:absolute;
+          right:0;
+          top:1rem;
+          &:hover{
+            cursor:pointer;
+            opacity:.8;
+          }
+        }
+      }
+
+      img{
+        height:140px;
+        width:auto;
+      }
+
+
+    }
+  }
 }

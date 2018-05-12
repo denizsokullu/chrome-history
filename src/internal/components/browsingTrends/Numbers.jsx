@@ -26,7 +26,7 @@ export default class Numbers extends React.Component{
         timeSpent:{
           title:'Time Spent',
           id:'timeSpent',
-          type:'Line',
+          type:'Bar',
           data: new TimeSpent()
         },
         categories:{

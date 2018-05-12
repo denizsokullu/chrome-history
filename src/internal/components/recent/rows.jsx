@@ -15,6 +15,7 @@ export default class Row extends React.Component {
   handleCheckChange = name => event => {
     this.setState({ [name]: event.target.checked });
   };
+
   renderDate(dateString){
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     let dateArr = dateString.split('-').reverse();
@@ -22,7 +23,6 @@ export default class Row extends React.Component {
     return datePrint.toLocaleDateString("en-US",options)
   }
   render(){
-
     return(
       <div className='card-row-wrapper'>
         {
@@ -42,9 +42,9 @@ export default class Row extends React.Component {
                 </div>
                 <div className='card-row'>
                 {
-                  historyData[date].map(entry=>{
+                  historyData[date].map((entry,index)=>{
                     return(
-                      <Card {...entry}/>
+                      <Card {...entry} scrollTop={this.props.scrollTop}/>
                     )
                   })
                 }

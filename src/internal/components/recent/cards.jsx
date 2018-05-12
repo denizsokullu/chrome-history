@@ -13,12 +13,15 @@ class Card extends React.Component{
     }
     this.triggerOverlay = this.triggerOverlay.bind(this);
   }
-  handleCheckChange = name => event => {
-    this.setState({ [name]: event.target.checked });
+
+  handleCheckChange =  () => {
+    this.setState({ checked:!this.state.checked });
   };
+
   handleClickChange = () => {
+    let distFromTop = this.refs.card.offsetTop - 24;
+    this.props.scrollTop(distFromTop,!this.state.clicked);
     this.setState({clicked:!this.state.clicked});
-    let distFromTop = this.refs.card.offsetTop - 64 - 48;
     //top nav 64 - padding 48 - text -
   }
   triggerOverlay(arg){
@@ -27,7 +30,10 @@ class Card extends React.Component{
   render(){
     const { classes } = this.props;
     return(
-      <div className={`card-wrapper-recents ${this.state.clicked ? 'selected' : ''}`} ref='card' onMouseEnter={()=>{this.triggerOverlay(true)}} onMouseLeave={()=>{this.triggerOverlay(false)}} onClick={this.handleClickChange.bind(this)}>
+      <div className={`card-wrapper-recents ${this.state.clicked ? 'selected' : ''}`} ref='card' onMouseEnter={()=>{this.triggerOverlay(true)}} onMouseLeave={()=>{
+        !this.state.checked ?
+        this.triggerOverlay(false) : null
+      }} onClick={this.handleClickChange.bind(this)}>
         {/* Overlay */}
         {
           this.state.overlayVisible
@@ -36,8 +42,8 @@ class Card extends React.Component{
             <div className='checkbox'>
               <Checkbox
                 checked={this.state.checked}
-                onChange={this.handleCheckChange('checked')}
-                value="checked"/>
+                onChange={this.handleCheckChange.bind(this)}
+                onClick={(e)=>{e.preventDefault();e.stopPropagation()}}/>
             </div>
             <div className='menu'>
               <LongMenu />
@@ -54,7 +60,7 @@ class Card extends React.Component{
           </div>
           {/* Content */}
           <div className='card-title'>
-            <div style={{width:'60%',height:'100%'}}>
+            <div style={{width:'60%'}}>
               <div className='title'>
                 <span className='icon'>
                   <img src={`/img${this.props.icon}`}/>
