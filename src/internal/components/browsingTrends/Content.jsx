@@ -12,12 +12,12 @@ import { MenuAnchor, Menu} from 'rmwc/Menu';
 import {  MenuItem } from 'material-ui/Menu';
 import { Button } from 'rmwc/Button';
 import Ripple from 'rmwc/Ripple';
-import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
+import ArrowDropDown from 'material-ui-icons/ArrowDropDown';
 
-import ListIcon from '@material-ui/icons/ViewList';
+import ListIcon from 'material-ui-icons/ViewList';
 
-import FavoriteIcon from '@material-ui/icons/FavoriteBorder';
-import FavoriteFilled from '@material-ui/icons/Favorite';
+import FavoriteIcon from 'material-ui-icons/FavoriteBorder';
+import FavoriteFilled from 'material-ui-icons/Favorite';
 
 import Tabs from './Tabs';
 

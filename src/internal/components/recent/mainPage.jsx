@@ -3,15 +3,15 @@ import Card from './cards';
 import Row from './rows';
 // import * as scroller from 'react-scroll';
 
-// import MoreVert from '@material-ui/icons/MoveVert';
-import Close from '@material-ui/icons/Close';
-import ViewModule from '@material-ui/icons/ViewModule';
-import Star from '@material-ui/icons/Star';
+// import MoreVert from 'material-ui-icons/MoveVert';
+import Close from 'material-ui-icons/Close';
+import ViewModule from 'material-ui-icons/ViewModule';
+import Star from 'material-ui-icons/Star';
 
 //Bottom Icons
-import Send from '@material-ui/icons/Send';
-import ExitToApp from '@material-ui/icons/ExitToApp';
-import CloudDownload from '@material-ui/icons/CloudDownload';
+import Send from 'material-ui-icons/Send';
+import ExitToApp from 'material-ui-icons/ExitToApp';
+import CloudDownload from 'material-ui-icons/CloudDownload';
 
 import Checkbox from 'material-ui/Checkbox';
 

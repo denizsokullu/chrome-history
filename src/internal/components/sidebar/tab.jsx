@@ -2,18 +2,18 @@ import React from 'react';
 import ListSubheader from 'material-ui/List/ListSubheader';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Collapse from 'material-ui/transitions/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
-import DesktopIcon from '@material-ui/icons/DesktopMac';
-import PhoneIcon from '@material-ui/icons/PhoneIphone';
-import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
+import InboxIcon from 'material-ui-icons/MoveToInbox';
+import DraftsIcon from 'material-ui-icons/Drafts';
+import SendIcon from 'material-ui-icons/Send';
+import ExpandLess from 'material-ui-icons/ExpandLess';
+import ExpandMore from 'material-ui-icons/ExpandMore';
+import StarBorder from 'material-ui-icons/StarBorder';
+import DesktopIcon from 'material-ui-icons/DesktopMac';
+import PhoneIcon from 'material-ui-icons/PhoneIphone';
+import LibraryBooksIcon from 'material-ui-icons/LibraryBooks';
 
-import EqualizerIcon from '@material-ui/icons/Equalizer';
-import ShareIcon from '@material-ui/icons/Share';
+import EqualizerIcon from 'material-ui-icons/Equalizer';
+import ShareIcon from 'material-ui-icons/Share';
 
 
 class Tab extends React.Component {

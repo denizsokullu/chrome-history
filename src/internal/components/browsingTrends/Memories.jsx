@@ -7,13 +7,13 @@ import { Elevation } from 'rmwc/Elevation';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 import styled from 'styled-components';
-import ArrowBack from '@material-ui/icons/ArrowBack';
+import ArrowBack from 'material-ui-icons/ArrowBack';
 
-import FavoriteFilled from '@material-ui/icons/Favorite';
-import FavoriteIcon from '@material-ui/icons/FavoriteBorder';
-import MoreIcon from '@material-ui/icons/MoreVert';
+import FavoriteFilled from 'material-ui-icons/Favorite';
+import FavoriteIcon from 'material-ui-icons/FavoriteBorder';
+import MoreIcon from 'material-ui-icons/MoreVert';
 
-import ChevronRight from '@material-ui/icons/ChevronRight';
+import ChevronRight from 'material-ui-icons/ChevronRight';
 
 import LongMenu from './LongMenu';
 
