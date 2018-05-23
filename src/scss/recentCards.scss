@@ -181,10 +181,10 @@ div[class*='MuiPaper']{
   will-change:clip-path;
   transition-timing-function:cubic-bezier(0.230, 1.240, 0.295, 0.915);
 
-  clip-path: polygon(-4px -2px, calc(100% + 4px) -2px, -4px -2px, calc(100% + 4px) -2px);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 
   &.open{
-    clip-path: polygon(-4px -2px, calc(100% + 4px) -2px, calc(100% + 4px) calc(100% + 2px), -4px calc(100% + 2px));
+    clip-path: polygon(-4px -2px, calc(100% + 4px) -2px, calc(100% + 4px) calc(100% + 4px), -4px calc(100% + 4px));
     transition:clip-path .4s;
     transition-timing-function:cubic-bezier(1.000, 0.000, 0.740, 0.815);
 

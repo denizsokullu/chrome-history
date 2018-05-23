@@ -79,7 +79,6 @@ export default class RecentContent extends React.Component{
       smooth: true,
       containerId: 'content'
     });
-    // alert(opening);
     this.setState({y:198+y});
     if(opening){
       setTimeout(()=>{
@@ -123,7 +122,7 @@ export default class RecentContent extends React.Component{
                                 <span className='time'>2:22PM</span>
                               </div>
                               <div className='url'>
-                                {data.url}
+                                {data.url.split('.').splice(1).join('.')}
                               </div>
                               <div className='icons'>
                                 <ExitToApp/>

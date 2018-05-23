@@ -102,8 +102,8 @@ body{
         }
       }
       a{
-        height:20px;
-        width:20px;
+        height:24px;
+        width:24px;
         display:inline-block;
         &:visited{
           fill:white;
@@ -113,6 +113,7 @@ body{
         }
         svg{
           transform:scale(1.2);
+          color:white;
         }
       }
       svg {
@@ -278,7 +279,6 @@ body{
     padding-top:3rem;
     padding-left:calc(50% - 500px);
     padding-right:calc(50% - 500px);
-    // margin:3rem auto 0 auto;
     background:$color-content-bg;
     height:calc(100vh - 113px);
     position:relative;
@@ -293,3 +293,4 @@ body{
 @import 'memories';
 @import 'tour';
 @import 'recentCards';
+@import 'sidebar/index';

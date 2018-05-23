@@ -5,16 +5,38 @@ import Checkbox from 'material-ui/Checkbox';
 
 
 export default class Row extends React.Component {
+
   constructor(props){
     super(props);
     this.state = {};
+    this.state.openStatus = {};
     Object.keys(historyData).map(val=>{
       this.state[val] = false;
+      this.state.openStatus[val] = {};
+      historyData[val].map((entry,index)=>{
+        this.state.openStatus[val][index] = {open:false};
+      })
     })
   }
+
   handleCheckChange = name => event => {
     this.setState({ [name]: event.target.checked });
   };
+
+  changeOpenCard(newCard){
+    // let openStatus = this.state.openStatus;
+    // if(!this.state.currentOpenCard){
+    //   openStatus[newCard.date][newCard.index].open = true;
+    //   this.setState({openStatus:openStatus});
+    //   this.setState.currentOpenCard = newCard;
+    // }
+    // else{
+    //   this.setState.currentOpenCard
+    //   openStatus[oldCard.date][oldCard.index].open = false;
+    //   openStatus[newCard.date][newCard.index].open = true;
+    //   this.setState({openStatus:openStatus});
+    // }
+  }
 
   renderDate(dateString){
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };

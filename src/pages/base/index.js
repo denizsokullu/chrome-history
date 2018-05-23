@@ -10,15 +10,17 @@ import { TabBar } from 'rmwc';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import SettingsIcon from '@material-ui/icons/Settings';
-import SearchIcon from '@material-ui/icons/Search';
+import SettingsIcon from 'material-ui-icons/Settings';
+import SearchIcon from 'material-ui-icons/Search';
 
-import ChevronLeft from '@material-ui/icons/ChevronLeft';
-import ChevronRight from '@material-ui/icons/ChevronRight';
+import ChevronLeft from 'material-ui-icons/ChevronLeft';
+import ChevronRight from 'material-ui-icons/ChevronRight';
 
 
-import FilterListIcon from '@material-ui/icons/FilterList';
-import FullScreenExitIcon from '@material-ui/icons/FullscreenExit';
+import FilterListIcon from 'material-ui-icons/FilterList';
+
+
+import SidebarComponent from '../../internal/components/sidebar/main';
 
 import {
   Toolbar,
@@ -50,9 +52,7 @@ export default class Base extends Component {
             <main className="ic-content">
 
               <Switch>
-              <Route path='/sidebar' component={()=>{
-                return (<div>This is the sidebar</div>)
-              }}/>
+              <Route path='/sidebar' component={SidebarComponent}/>
               <Route path='/' component={()=>{
                 return(
                 <div>
@@ -60,9 +60,8 @@ export default class Base extends Component {
                   <Toolbar>
                     <ToolbarRow>
                       <ToolbarTitle>
-                        <span style={{display:'flex',alignItems:'center',marginLeft:'.5rem'}}>
-                          <img src='/img/logo.svg' style={{width:'70px',marginRight:'.3rem',paddingTop:'1px'}}/>
-                          <span style={{fontWeight:500}}></span>
+                        <span style={{display:'flex',alignItems:'center',marginLeft:'.5rem','font-family':'Product Sans'}}>
+                          {/* <img src='/img/logo.svg' style={{width:'70px',marginRight:'.3rem',paddingTop:'1px'}}/> */}
                           History
                         </span>
                         <div className='search-wrapper'>
@@ -74,7 +73,7 @@ export default class Base extends Component {
                             </div>
                             <SettingsIcon/>
                             <Link to='/sidebar'>
-                                <FullScreenExitIcon/>
+                                <img src='/img/vertical-split.svg'/>
                             </Link>
                           </div>
                       </div>

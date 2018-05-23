@@ -1,0 +1,128 @@
+.save-window{
+  position:absolute;
+  bottom:.5rem;
+  opacity:0;
+  height:calc(100vh - 52px);
+  box-sizing:border-box;
+  width:100%;
+  transition:opacity .3s ease-in-out;
+  background-color:$color-content-bg;
+  padding:0 .5rem;
+  z-index:11;
+  &.open{
+    transition:opacity .3s ease-in-out;
+    opacity:1;
+    .save-window-content > * {
+      transition:opacity .3s ease-in-out;
+      opacity:1!important;
+    }
+  }
+  &.hidden{
+    z-index:-1;
+  }
+  .save-window-content{
+    width:100%;
+    max-height: calc(calc(100vh - 47px) - .5rem);
+    background-color:white;
+    border-radius:3px;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,.2);
+    display:flex;
+    justify-content:space-between;
+    flex-direction:column;
+    & > * {
+      box-sizing:border-box;
+      transition:opacity .3s ease-in-out;
+      opacity:0;
+    }
+    .content{
+      flex:1 1 auto;
+      max-height:calc(100% - 47px);
+      overflow-y:auto;
+      .window-card-content{
+        .window-card-row{
+          display:flex;
+          align-items: center;
+          padding-bottom:1rem;
+          margin:0 1rem; 
+          &:not(:last-child){
+            border-bottom:1px solid #DADADA
+          }
+          img{
+            width:25%;
+            margin-right:.5rem;
+          }
+          .content-col{
+            width:45%;
+            padding-right:1rem;
+            p{
+              font-size:13px;
+              overflow:hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              margin:.25rem 0;
+              &:last-child{
+                color:$color-text-gray-1;
+              }
+            }
+          }
+        }
+      }
+    }
+    .content-header{
+      border-top:1px solid #DADADA;
+      flex:0 0 auto;
+      width:100%;
+
+    }
+    .header,.actions{
+      flex:0 0 auto;
+      width:100%;
+      padding:1rem;
+    }
+    .header{
+      .title{
+        font-size:16px;
+      }
+      div:last-child{
+        margin-top:.5rem;
+        label[data-shrink="true"]{
+          color:$color-blue-bg;
+        }
+        input{
+          font-size:13px;
+        }
+        & > div::after{
+          background-color:$color-blue-bg;
+        }
+        & > div:hover {
+          &::before{
+            background-color:$color-blue-bg;
+            opacity:0.2;
+          }
+        }
+        p{
+          text-align:right;
+        }
+      }
+    }
+    .actions{
+      display:flex;
+      justify-content: flex-end;
+      border-top:1px solid #DADADA;
+
+      .action-button{
+        color:$color-text-gray-1;
+        // transition:color .2s;
+        font-size:13px;
+        &:not(:last-child){
+          margin-right:.5rem;
+        }
+        &:hover{
+          // transition:color .2s;
+          color:black;
+          cursor:pointer;
+        }
+      }
+    }
+  }
+}
