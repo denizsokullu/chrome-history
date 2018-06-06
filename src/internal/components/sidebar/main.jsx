@@ -2,6 +2,7 @@ import React from 'react';
 import ListSubheader from 'material-ui/List/ListSubheader';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Collapse from 'material-ui/transitions/Collapse';
+import { Link } from 'react-router-dom';
 import InboxIcon from 'material-ui-icons/MoveToInbox';
 import DraftsIcon from 'material-ui-icons/Drafts';
 import SendIcon from 'material-ui-icons/Send';
@@ -115,7 +116,9 @@ export default class MainComponent extends React.Component{
               <span style={{fontWeight:500}}></span>
               History
             </span>
-            <HistoryIcon/>
+            <Link to='/recent' className='recent-link'>
+              <HistoryIcon/>
+            </Link>
           </div>
           <Tabs/>
           <div className='save-session'>

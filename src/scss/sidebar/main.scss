@@ -37,9 +37,20 @@
       display:flex;
       justify-content: space-between;
       align-items: center;
+      a{
+        display:flex;
+        &:focus,&:active,&:visited{
+           svg{
+             color:$color-blue-bg;
+             fill:$color-blue-bg;
+             opacity:.8;
+           }
+        }
+      }
       svg {
         width:20px;
         height:20px;
+        color:$color-blue-bg;
         &:hover{
           cursor:pointer;
           opacity:.8;

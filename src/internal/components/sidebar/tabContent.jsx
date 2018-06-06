@@ -8,6 +8,7 @@ import ChevronRight from 'material-ui-icons/ChevronRight';
 
 
 import DataCard from './dataCard'
+import DataCardCollapsible from './DataCardCollapsible'
 
 class RecentlyClosed extends React.Component {
   content = [
@@ -64,10 +65,54 @@ class RecentlyClosed extends React.Component {
 }
 
 class Sessions extends React.Component {
+  content = [
+    {
+      title:'In the Ambulence With Gaza\'s Protest Paramedics',
+      url:'nytimes.com',
+      time:'12:18 AM',
+      icon:'/sidebar/favicons/nytimes.png',
+    },
+    {
+      title:'Figma: the collaborative interface design tool.',
+      url:'figma.com',
+      time:'12:17 AM',
+      icon:'/sidebar/favicons/figma.png',
+    },
+    {
+      title:'Google Flights',
+      url:'google.com/flights',
+      time:'11:52 AM',
+      icon:'/sidebar/favicons/flights.png',
+    },
+    {
+      title:'Log in | Tumblr',
+      url:'tumblr.com',
+      time:'8:18 PM',
+      icon:'/sidebar/favicons/tumblr.png',
+    },
+    {
+      title:'First Take reacts to Warriors beating Rockets in Game 1 | First Take | ESPN',
+      url:'youtube.com',
+      time:'7:36 PM',
+      icon:'/sidebar/favicons/youtube.png',
+    },
+    {
+      title:'Facebook',
+      url:'facebook.com',
+      time:'7:32 PM',
+      icon:'/sidebar/favicons/facebook.png',
+    },
+    {
+      title:'Men\'s Nike React Running Shoes.',
+      url:'nike.com',
+      time:'7:28 PM',
+      icon:'/sidebar/favicons/nike.png',
+    },
+  ]
   render(){
     return (
-      <div className='tab-content'>
-        Sessions!
+      <div className='tab-content' id='sessions'>
+        <DataCardCollapsible title='Today - May 10, 2018' data={this.content}/>
       </div>
     )
   }
