@@ -17,6 +17,7 @@ export default class Row extends React.Component {
         this.state.openStatus[val][index] = {open:false};
       })
     })
+    console.log(historyData);
   }
 
   handleCheckChange = name => event => {
@@ -44,6 +45,7 @@ export default class Row extends React.Component {
     let datePrint = new Date(dateArr[0],dateArr[2],dateArr[1]);
     return datePrint.toLocaleDateString("en-US",options)
   }
+
   render(){
     return(
       <div className='card-row-wrapper'>

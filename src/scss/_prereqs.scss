@@ -18,6 +18,18 @@ a {
     fill:inherit;
   }
 }
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(48px);
+    opacity:.2;
+  }
+  100% {
+    transform: translateY(0);
+    opacity:1;
+  }
+}
+
 $color-blue-bg:#3367D6;
 $color-blue:#4385F4;
 $color-content-bg:#F5F5F5;

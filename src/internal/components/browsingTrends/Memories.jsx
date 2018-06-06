@@ -25,6 +25,10 @@ const StyledLink = styled(Link)`
     color:inherit;
     &:focus, &:hover, &:visited, &:link, &:active {
         text-decoration: none;
+    };
+    svg:hover{
+      color:black;
+      fill:black;
     }
 `;
 
