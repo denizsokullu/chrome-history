@@ -92,7 +92,10 @@
 
   .iframe-container {
 
-    width:calc(100vw - 300px);
+    // width:calc(100vw - 300px);
+    flex: 1 0;
+    height: 100vh;
+
 
     img {
 
@@ -101,6 +104,10 @@
       box-shadow:none;
       position:relative;
       top:-2px;
+      height: 100vh;
+      margin: auto;
+      display: block;
+      width:auto;
 
     }
 
