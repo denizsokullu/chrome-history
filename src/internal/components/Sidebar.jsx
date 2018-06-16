@@ -56,17 +56,25 @@ const icon = {
 }
 
 class NestedList extends React.Component {
-  state = { openRecent: false, openSaved: false};
+  state = { openRecent: false, openSaved: false, currentSelected:'recent'};
+
+  swapState = (key) => {
+    this.setState({currentSelected:key},()=>{
+      // console.log(this.state.currentSelected);
+    })
+  }
 
   handleClickRecent = () => {
     this.setState({ openRecent: !this.state.openRecent });
+    this.swapState('recent')
     this.history.history.push('/recents');
-    console.log(this.props.history)
+    // console.log(this.props.history)
   };
 
   handleClickSaved = () => {
     this.setState({ openSaved: !this.state.openSaved });
-    this.history.history.push('/browsing-trends');
+    // this.history.history.push('/browsing-trends');
+    this.swapState('saved')
   };
 
   render() {
@@ -81,9 +89,19 @@ class NestedList extends React.Component {
           <Link to="/recent">
             <ListItem button onClick={this.handleClickRecent}>
               <ListItemIcon>
-                <RestoreIcon style={icon}/>
+                {
+                  this.state.currentSelected === 'recent' ?
+                  <RestoreIcon style={iconSelected}/>
+                  :
+                  <RestoreIcon style={icon}/>
+                }
               </ListItemIcon>
-              <ListItemText inset primary="Recent"/>
+              {
+                this.state.currentSelected === 'recent' ?
+                <ListItemText inset primary="Recent" style={selected} className='listItem-selected'/>
+                :
+                <ListItemText inset primary="Recent"/>
+              }
               {this.state.openRecent ? <ExpandLess style={icon}/> : <ExpandMore style={icon}/>}
             </ListItem>
           </Link>
@@ -107,9 +125,20 @@ class NestedList extends React.Component {
 
           <ListItem button onClick={this.handleClickSaved}>
             <ListItemIcon>
-              <LibraryBooksIcon style={icon}/>
-            </ListItemIcon>
-            <ListItemText inset primary="Saved"/>
+              {
+                this.state.currentSelected === 'saved' ?
+                <LibraryBooksIcon style={iconSelected}/>
+                :
+                <LibraryBooksIcon style={icon}/>
+              }
+              </ListItemIcon>
+              {
+                this.state.currentSelected === 'saved' ?
+                <ListItemText inset primary="Saved" style={selected} className='listItem-selected'/>
+                :
+                <ListItemText inset primary="Saved"/>
+              }
+            {/* <ListItemText inset primary="Saved"/> */}
             {this.state.openSaved ? <ExpandLess style={icon}/> : <ExpandMore style={icon}/>}
           </ListItem>
 
@@ -128,19 +157,40 @@ class NestedList extends React.Component {
             </List>
           </Collapse>
 
-          <Link to='/browsing-trends/numbers'>
+          <Link to='/browsing-trends/numbers' onClick={()=>{this.swapState('bt')}}>
             <ListItem button>
-                <ListItemIcon>
-                  <EqualizerIcon style={iconSelected}/>
-                </ListItemIcon>
-                <ListItemText inset primary="Browsing Trends" style={selected} className='listItem-selected'/>
+              <ListItemIcon>
+              {
+                this.state.currentSelected === 'bt' ?
+                <EqualizerIcon style={iconSelected}/>
+                :
+                <EqualizerIcon style={icon}/>
+              }
+              </ListItemIcon>
+                {
+                  this.state.currentSelected === 'bt' ?
+                  <ListItemText inset primary="Browsing Trends" style={selected} className='listItem-selected'/>
+                  :
+                  <ListItemText inset primary="Browsing Trends"/>
+                }
+
             </ListItem>
           </Link>
-          <ListItem button>
+          <ListItem button onClick={()=>this.swapState('shared')}>
             <ListItemIcon>
-              <ShareIcon style={icon}/>
+              {
+                this.state.currentSelected === 'shared' ?
+                  <ShareIcon style={iconSelected}/>
+                :
+                  <ShareIcon style={icon}/>
+              }
             </ListItemIcon>
-            <ListItemText inset primary="Shared Links" />
+            {
+              this.state.currentSelected === 'shared' ?
+              <ListItemText inset primary="Shared Links" style={selected} className='listItem-selected'/>
+              :
+              <ListItemText inset primary="Shared Links"/>
+            }
           </ListItem>
         </List>
       </div>
